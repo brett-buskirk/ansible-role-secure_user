@@ -43,9 +43,7 @@ Or you can include it in your `requirements.yml` file:
 
 ```yaml
 ---
-roles:
   - name: brett-buskirk.secure_user
-    src: https://github.com/brett-buskirk/ansible-role-secure_user
 ```
 
 Then install it using:
