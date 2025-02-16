@@ -1,0 +1,38 @@
+# ref: tasks/main.yml
+
+---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Create sudo user
+  user:
+    name: "{{ user_name }}"
+    groups: sudo
+    shell: /bin/bash
+    createhome: yes
+
+- name: Create.ssh directory
+  file:
+    path: "/home/{{ user_name }}/.ssh"
+    state: directory
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0700
+
+- name: Copy root's authorized_keys
+  copy:
+    remote_src: true
+    src: /root/.ssh/authorized_keys
+    dest: "/home/{{ user_name }}/.ssh/authorized_keys"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0600
+
+- name: Disable password authentication for SSH
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+  notify:
+    - Restart SSH
