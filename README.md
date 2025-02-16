@@ -36,7 +36,7 @@ This role has no dependencies.
 You can install this role using Ansible Galaxy:
 
 ```bash
-ansible-galaxy install brett_buskirk.secure_user
+ansible-galaxy role install brett-buskirk.secure_user
 ```
 
 Or you can include it in your `requirements.yml` file:
@@ -44,7 +44,7 @@ Or you can include it in your `requirements.yml` file:
 ```yaml
 ---
 roles:
-  - name: brett_buskirk.secure_user
+  - name: brett-buskirk.secure_user
     src: https://github.com/brett-buskirk/ansible-role-secure_user
 ```
 
@@ -66,9 +66,9 @@ This role performs the following tasks:
 
 ## Usage
 
-1.  **Define `user_name`:** In your playbook, define the `user_name` variable with the desired username.
-2.  **Place SSH key:** Ensure the public key of the user's SSH key pair is in `/root/.ssh/authorized_keys` on the target host.
-3.  **Include the role:** Include the `secure_user` role in your playbook.
+1. **Define `user_name`:** In your playbook, define the `user_name` variable with the desired username.
+2. **Place SSH key:** Ensure the public key of the user's SSH key pair is in `/root/.ssh/authorized_keys` on the target host.
+3. **Include the role:** Include the `secure_user` role in your playbook.
 
 ## License
 
