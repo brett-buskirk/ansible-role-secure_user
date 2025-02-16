@@ -1,0 +1,26 @@
+# ref: meta/main.yml
+
+---
+galaxy_info:
+  author: Brett Buskirk
+  description: Ansible role to create a new user account with sudo privileges and sets up key-based SSH authentication.
+  company: RC Journey
+  license: MIT
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - user
+    - users
+    - account
+    - accounts
+    - sudo
+    - ssh
+    - security
+    - system
+    - administration
+    - linux
+
+dependencies: []

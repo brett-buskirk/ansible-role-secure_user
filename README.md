@@ -77,3 +77,10 @@ MIT
 ## Author Information
 
 Brett Buskirk
+
+## Galaxy Tags
+
+```
+user, users, accout, accounts, sudo, ssh, security, system, administration, linux
+```
+
