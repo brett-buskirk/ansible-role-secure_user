@@ -58,7 +58,7 @@ This role performs the following tasks:
 
 * **Update apt cache:** Updates the apt package cache to ensure the latest package information is available.
 * **Create sudo user:** Creates a new user account with the specified username, adds it to the sudo group, sets the default shell to `/bin/bash`, and creates the user's home directory.
-* **Create.ssh directory:** Creates the `.ssh` directory in the user's home directory and sets appropriate permissions.
+* **Create .ssh directory:** Creates the `.ssh` directory in the user's home directory and sets appropriate permissions.
 * **Copy root's authorized_keys:** Copies the `authorized_keys` file from the root user's `.ssh` directory to the new user's `.ssh` directory, enabling key-based authentication.
 * **Disable password authentication for SSH:** Disables password authentication for SSH to enforce key-based authentication.
 
@@ -79,6 +79,6 @@ Brett Buskirk
 ## Galaxy Tags
 
 ```
-user, users, accout, accounts, sudo, ssh, security, system, administration, linux
+user, users, account, accounts, sudo, ssh, security, system, administration, linux
 ```
 
