@@ -1,0 +1,9 @@
+# ref: defaults/main.yml
+
+---
+# Grant the created user passwordless sudo (NOPASSWD:ALL) via a visudo-validated
+# /etc/sudoers.d/<user_name> drop-in. This is the correct pattern for a
+# key-authenticated, no-password server user: the SSH key is the credential, and
+# the `sudo` group would otherwise require a password the user doesn't have.
+# Set to false to require an interactive sudo password instead.
+secure_user_passwordless_sudo: true
