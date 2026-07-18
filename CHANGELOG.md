@@ -6,9 +6,12 @@ All notable changes to ansible-role-secure_user are documented here. The format 
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-07-18
+
 ### Changed
-- Retarget the galaxy `platforms` to Debian (bookworm). The role's `apt` / sudo / SSH tasks are
-  Debian-native and otherwise unchanged.
+- Retarget the galaxy `platforms` to Debian — **bookworm and trixie** (was Ubuntu). The role's
+  `apt` / sudo / SSH tasks are distro-native and otherwise unchanged.
+- Corrected the galaxy `company` metadata to `Brett Buskirk LLC`.
 
 ### Added
 - Ensure the `sudo` package is present before adding the user to the `sudo` group, so the role also
@@ -42,6 +45,7 @@ All notable changes to ansible-role-secure_user are documented here. The format 
   restarts the SSH service via handler to enforce key-based logins.
 - Galaxy metadata (`meta/main.yml`) targeting Ubuntu, `min_ansible_version: 2.9`.
 
-[Unreleased]: https://github.com/brett-buskirk/ansible-role-secure_user/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/brett-buskirk/ansible-role-secure_user/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/brett-buskirk/ansible-role-secure_user/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/brett-buskirk/ansible-role-secure_user/compare/v1.0.0...v1.0.2
 [1.0.0]: https://github.com/brett-buskirk/ansible-role-secure_user/releases/tag/v1.0.0
