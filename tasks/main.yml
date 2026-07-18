@@ -5,6 +5,11 @@
   apt:
     update_cache: yes
 
+- name: Ensure sudo is installed
+  apt:
+    name: sudo
+    state: present
+
 - name: Create sudo user
   user:
     name: "{{ user_name }}"

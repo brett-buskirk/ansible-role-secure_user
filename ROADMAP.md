@@ -7,7 +7,7 @@ does it well. It is maintained, not actively expanded.
 
 ## Maintenance
 
-- Keep the role working against current Ubuntu LTS releases and Ansible versions.
+- Keep the role working against current Debian stable releases and Ansible versions.
 - Address any bugs or security issues promptly and cut a patch release.
 
 ## Nice-to-haves
@@ -19,4 +19,4 @@ These are genuine, self-contained improvements — none are committed or urgent.
 - [ ] Make the copied public key configurable (accept a `user_ssh_key` variable)
       instead of always sourcing from `/root/.ssh/authorized_keys`.
 - [ ] Parameterize hardcoded assumptions (sudo group name, target shell) as role
-      variables with sensible defaults, to broaden distro support beyond Ubuntu.
+      variables with sensible defaults, to broaden distro support beyond Debian.

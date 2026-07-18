@@ -6,6 +6,14 @@ All notable changes to ansible-role-secure_user are documented here. The format 
 
 ## [Unreleased]
 
+### Changed
+- Retarget the galaxy `platforms` to Debian (bookworm). The role's `apt` / sudo / SSH tasks are
+  Debian-native and otherwise unchanged.
+
+### Added
+- Ensure the `sudo` package is present before adding the user to the `sudo` group, so the role also
+  works on a minimal Debian host where sudo isn't preinstalled.
+
 ## [1.0.2] - 2025-02-16
 
 ### Changed
