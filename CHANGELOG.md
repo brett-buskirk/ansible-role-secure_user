@@ -13,6 +13,14 @@ All notable changes to ansible-role-secure_user are documented here. The format 
 ### Added
 - Ensure the `sudo` package is present before adding the user to the `sudo` group, so the role also
   works on a minimal Debian host where sudo isn't preinstalled.
+- `secure_user_passwordless_sudo` (default `true`) — toggle for the passwordless-sudo grant below.
+
+### Fixed
+- The created user couldn't actually run `sudo`: it was added to the `sudo` group but given no password
+  (and SSH password auth is disabled), and the `sudo` group requires one — so `sudo` prompted for a
+  password the user never had. The role now grants **passwordless sudo** via a `visudo`-validated
+  `/etc/sudoers.d/<user_name>` drop-in (`NOPASSWD:ALL`), the correct pattern for a key-only server user.
+  Opt out with `secure_user_passwordless_sudo: false`.
 
 ## [1.0.2] - 2025-02-16
 

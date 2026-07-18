@@ -17,6 +17,20 @@
     shell: /bin/bash
     createhome: yes
 
+# The user has no password (and SSH password auth is disabled), so the default
+# password-requiring `sudo` group membership can't be used. Grant passwordless
+# sudo so a key-only user can actually escalate. visudo -cf validates the file
+# before install so a bad edit can never break sudo.
+- name: Grant the user passwordless sudo
+  copy:
+    dest: "/etc/sudoers.d/{{ user_name }}"
+    content: "{{ user_name }} ALL=(ALL) NOPASSWD:ALL\n"
+    owner: root
+    group: root
+    mode: "0440"
+    validate: visudo -cf %s
+  when: secure_user_passwordless_sudo | bool
+
 - name: Create.ssh directory
   file:
     path: "/home/{{ user_name }}/.ssh"

@@ -15,6 +15,7 @@ This Ansible role creates a new user account with sudo privileges and sets up ke
 | Variable Name | Description | Default Value |
 |---|---|---|
 | `user_name` | The username to create. | `None` (required) |
+| `secure_user_passwordless_sudo` | Grant the user passwordless sudo (`NOPASSWD:ALL`) via `/etc/sudoers.d/`. Set `false` to require a sudo password. | `true` |
 
 ## Dependencies
 
@@ -57,7 +58,9 @@ ansible-galaxy install -r requirements.yml
 This role performs the following tasks:
 
 * **Update apt cache:** Updates the apt package cache to ensure the latest package information is available.
+* **Ensure sudo is installed:** Installs the `sudo` package (a minimal Debian host may not ship it), so the `sudo` group exists.
 * **Create sudo user:** Creates a new user account with the specified username, adds it to the sudo group, sets the default shell to `/bin/bash`, and creates the user's home directory.
+* **Grant passwordless sudo:** Writes a `visudo`-validated `/etc/sudoers.d/<user_name>` drop-in with `NOPASSWD:ALL` so the key-only user can actually run `sudo`. Skipped when `secure_user_passwordless_sudo: false`.
 * **Create .ssh directory:** Creates the `.ssh` directory in the user's home directory and sets appropriate permissions.
 * **Copy root's authorized_keys:** Copies the `authorized_keys` file from the root user's `.ssh` directory to the new user's `.ssh` directory, enabling key-based authentication.
 * **Disable password authentication for SSH:** Disables password authentication for SSH to enforce key-based authentication.
