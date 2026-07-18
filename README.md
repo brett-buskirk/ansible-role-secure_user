@@ -4,7 +4,7 @@ This Ansible role creates a new user account with sudo privileges and sets up ke
 
 ## Requirements
 
-* An Ubuntu-based system.
+* A Debian-based system.
 * Ansible.
 * Root privileges (via `become: true`).
 * An SSH key pair for the new user.
